@@ -1,0 +1,16 @@
+.config/phpmyadmin-conf.d
+!.config/phpmyadmin-conf.d/config.user.inc-example.php
+db/**
+!db/init-scripts/permissions.sql
+.dockerignore
+.DS_Store
+docs/**
+.env-example
+.git/**
+.gitignore
+logs/**
+LICENSE
+node_modules/**
+.security/**
+ShapeCreations.code-workspace
+
