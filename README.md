@@ -32,16 +32,12 @@ The source code for this project will evolve with the project. You will find all
 
 All tutorial walkthroughs can be found in the [docs/](./docs/) folder within this repository. These in-depth markdown files will be your resource and guide especially when it comes to the custom configurations and secrets management. 
 
-I will attempt to keep a running log of updates in the [Project Updates](README.md#project-updates) section when tutorial sections or code has been edited or expanded upon. 
+I will attempt to keep a running log of updates in the [UPDATES.md](UPDATES.md) file when tutorial sections or code has been edited or expanded upon.
 
-The state of the project can be found in the [Issues & Upcoming Features](README.md#issues--upcoming-features) section (in this README.md). 
+The future state of the project can be found in the [FUTURE_LOG.md](FUTURE_LOG.md) file and will be gradually be checked off as improvements are made. 
 
 For the truly impatient or those who simply wish to tinker with the fully developed project, I will eventually include a `Makefile` that builds the base project in its entirety. This will be added at a later date and will be found in the [TLDR? Build the Full Project](README.md#tldr-build-the-full-project)
 
 ---
-
-## Project Updates
-
-## Issues & Upcoming Features
 
 ## TLDR? Build the Full Project
