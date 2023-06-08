@@ -24,6 +24,7 @@
       "titleBar.inactiveBackground": "#3b678799",
       "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#3b6787"
+    "peacock.color": "#3b6787",
+    "markdown-preview-github-styles.darkTheme": "light"
   }
 }
