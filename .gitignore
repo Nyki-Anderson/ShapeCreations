@@ -1,6 +1,6 @@
 ## Files to Ignore ##
-app/public_html/assets/images
-.config/phpmyadmin-conf.d
+app/public_html/assets/images/**
+.config/phpmyadmin-conf.d/**
 db/**
 .DS_Store
 .env
