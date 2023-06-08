@@ -16,11 +16,15 @@ ShapeCreations.code-workspace
 !.vscode/launch.json
 
 ## Keep Empty Directory ##
+!app/public_html/assets/.gitkeep
+!app/public_html/assets/images/.gitkeep
 !app/public_html/assets/images/creations/.gitkeep
 !app/public_html/assets/images/profiles/.gitkeep
 !app/public_html/assets/images/site/.gitkeep
+!db/.gitkeep
 !db/init-scripts/.gitkeep
 !db/mysql-data/.gitkeep
+!logs/.gitkeep
 !logs/apache/.gitkeep
 !logs/mariadb/.gitkeep
 !logs/php/.gitkeep
