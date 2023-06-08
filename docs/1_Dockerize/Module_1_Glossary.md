@@ -6,9 +6,9 @@ description: A comprehensive glossary of terms used in Module 1 organized first
   in my own words, often to build context around what I am discussing. So, links  
   to official definitons have been included for clarification.  
 share: true  
-category: tutorial  
+category: 1_Dockerize  
 created: Thursday, June 8th 2023, 2:31:10 pm  
-modified: Thursday, June 8th 2023, 2:32:46 pm  
+modified: Thursday, June 8th 2023, 2:38:56 pm  
 tags:  
   - glossary  
   - defintions  
