@@ -8,7 +8,7 @@ description: A comprehensive glossary of terms used in module 0 organized first
 share: true  
 category: 0_Getting_Started  
 created: Thursday, June 8th 2023, 1:57:23 am  
-modified: Thursday, June 8th 2023, 2:34:00 pm  
+modified: Thursday, June 8th 2023, 2:48:46 pm  
 tags:  
   - glossary  
   - defintions  
@@ -37,6 +37,12 @@ status: updating
   
 ## [0.3_Docker_Primer](./0.3_Docker_Primer.md#)  
   
+- **Containers** : Once an image has been built successfully, the service is ready to be *containerized* or run. Docker uses the image’s instructions to run an instance of a service and does so until it is stopped and/or removed. Whatever service is being run, be it an Apache server or a MariaDB database, a container built to the exact specifications of an image will do only what is prescribed to do. It will not share state or data with any other container or service.  
+  
+	Ideally each image and the container run from it are assigned a single task or mode. This is the convention for, not only, security purposes (minimizing the attack surface of a service) but also reducing the overall complexity of a single container.  
+  
+	Once a container is stopped, the service stops. And once a container is removed any data that was being stored by the service is lost (though we can configure this not to be the case). Essentially, the container is ephemeral but unless specifically removed, the image will still exist and can still be run again without the need to rebuild it. This is convenient when you need to run multiple containers from a single image.  
+  
  - **Images** : A Docker image is a read-only blueprint for a service required by a given application or project i.e., a server, a database, or any tool that your project needs. An image (as opposed to a container) does not itself run. It is simply the scaffolding that defines a service: including its configuration, where it stores its data, which port/s it exposes, which network/s it uses, what credentials its has access to, etc.  
   
 	These elements are brought together using a `Dockerfile` which builds a layer for each command it contains. You can either use a pre-built image pulled from the [Docker Hub](https://hub.docker.com/) or define your own `Dockerfile` that appends to a base Docker Hub image.  
@@ -44,11 +50,5 @@ status: updating
 	Whether built from *scratch* or not, every image is based on some Linux distribution, usually Ubuntu or Alpine. This forms the base layer whereupon each consecutive command is layered on top. As such, an image can be thought of as an onion of information describing *how* a service will operate while keeping track of where in its build process each piece of information was obtained. This will be important later when determining how we wish to order the commands in the `Dockerfile`.  
   
 	Based on this layering, an image is easily cacheable; only rebuilding layers that have been changed since it was last built. That makes the process of building and rebuilding images quicker and more efficient but also serves as a sort of time capsule that can be reverted to an older layer with a simple command. This can be dangerous if you have hardcoded sensitive data into the either the `Dockerfile` or any of the configuration files as they will be congealed into the layers for anyone to see.  
-  
-- **Containers** : Once an image has been built successfully, the service is ready to be *containerized* or run. Docker uses the image’s instructions to run an instance of a service and does so until it is stopped and/or removed. Whatever service is being run, be it an Apache server or a MariaDB database, a container built to the exact specifications of an image will do only what is prescribed to do. Nothing more nor less.  
-  
-	Ideally each image and the container run from it are assigned a single task or mode. This is the convention for, not only, security purposes (minimizing the attack surface of a service) but also reducing the overall complexity of a single container.  
-  
-	Once a container is stopped, the service stops. And once a container is removed any data that was being stored by the service is lost (though we can configure this not to be the case). Essentially, the container is ephemeral but unless specifically removed, the image will still exist and can still be run again without the need to rebuild it. This is convenient when you need to run multiple containers from a single image.  
   
 ---  
