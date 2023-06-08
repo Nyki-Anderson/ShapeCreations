@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  apache:
+    build:
+      context: .
+      dockerfile: ${DOCKERFILES}/apache.dockerfile
+      args:
+        - APACHE_CONFIG=${APACHE_CONFIG}
+        - APACHE_PUBLIC_HTML=${APACHE_PUBLIC_HTML}
+        - APACHE_VERSION=${APACHE_VERSION}
+        - APP_NAME=${APP_NAME}
+        - GROUP=${GROUP}
+        - UID=${UID}
+        - USER=${USER}
+        - VIRTUAL_HOST=${VIRTUAL_HOST}
+    container_name: apache
+    restart: always
+    hostname: ${VIRTUAL_HOST}
+    ports:
+      - ${APACHE_HTTP_PORT}:80
+      - ${APACHE_HTTPS_PORT}:443
+    env_file:
+      - ./.env
+    secrets:
+      - server-certificate
+      - server-private
+    links:
+      - php-fpm
+  php-fpm:
+    build:
+      context: .
+      dockerfile: ${DOCKERFILES}/php-fpm.dockerfile
+      args:
+        - APP=${APP}
+        - APP_NAME=${APP_NAME}
+        - COMPOSER_VERSION=${COMPOSER_VERSION}
+        - GROUP=${GROUP}
+        - PHP_CONFIG=${PHP_CONFIG}
+        - PHP_PORT=${PHP_PORT}
+        - PHP_VERSION=${PHP_VERSION}
+        - UID=${UID}
+        - USER=${USER}
+    container_name: php-fpm
+    restart: always
+    ports:
+      - ${PHP_PORT}:9000
+    env_file: ./.env
+    links:
+      - mariadb
+  mariadb:
+    build:
+      context: .
+      dockerfile: ${DOCKERFILES}/mariadb.dockerfile
+      args:
+        - DB_VERSION=${DB_VERSION}
+        - DB_INIT_SCRIPTS=${DB_INIT_SCRIPTS}
+        - DB_CONFIG=${DB_CONFIG}
+    container_name: mariadb
+    restart: always
+    ports:
+      - ${DB_PORT}:3306
+    env_file: ./.env
+    environment:
+      - MARIADB_DATABASE_FILE=/run/secrets/db-name
+      - MARIADB_USER_FILE=/run/secrets/db-user
+      - MARIADB_PASSWORD_FILE=/run/secrets/db-password
+      - MARIADB_ROOT_PASSWORD_FILE=/run/secrets/db-root-password
+      - MARIADB_ROOT_HOST_FILE=/run/secrets/db-host
+    secrets:
+      - db-name
+      - db-user
+      - db-password
+      - db-root-password
+      - db-host
+
+secrets:
+  server-certificate:
+    file: ${SECRETS}/certs/server.crt
+  server-private:
+    file: ${SECRETS}/keys/server.key
+  db-name:
+    file: ${SECRETS}/credentials/db-name.txt
+  db-user:
+    file: ${SECRETS}/credentials/db-user.txt
+  db-password:
+    file: ${SECRETS}/credentials/db-password.txt
+  db-root-password:
+    file: ${SECRETS}/credentials/db-root-password.txt
+  db-host:
+    file: ${SECRETS}/credentials/db-host.txt
+  pma-certificate:
+    file: ${SECRETS}/certs/pma.crt
+  pma-private:
+    file: ${SECRETS}/keys/pma.key
