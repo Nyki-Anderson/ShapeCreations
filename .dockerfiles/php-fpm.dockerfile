@@ -12,7 +12,8 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 ARG COMPOSER_VERSION
 
 RUN chmod +x /usr/local/bin/install-php-extensions \
-  && install-php-extensions pdo pdo_mysql xdebug @composer-${COMPOSER_VERSION}
+  && install-php-extensions mysqli pdo pdo_mysql xdebug @composer-${COMPOSER_VERSION} \
+  && docker-php-ext-enable mysqli pdo_mysql
 
 ARG USER
 ARG GROUP
@@ -37,9 +38,6 @@ ARG PHP_INI_FILE
 COPY ${PHP_CONFIG}/php.ini ./php/php.ini
 
 COPY ${PHP_CONFIG}/conf.d/fpm.ini ./php/conf.d/docker-fpm.ini
-COPY ${PHP_CONFIG}/conf.d/mysql.ini ./php/conf.d/docker-mysql.ini
-COPY ${PHP_CONFIG}/conf.d/pdo_mysql.ini ./php/conf.d/docker-php-ext-pdo_mysql.ini
-COPY ${PHP_CONFIG}/conf.d/sodium.ini ./php/conf.d/docker-php-ext-sodium.ini
 COPY ${PHP_CONFIG}/conf.d/xdebug.ini ./php/conf.d/docker-php-ext-xdebug.ini
 
 COPY ${PHP_CONFIG}/php-fpm.d/global.conf ./php-fpm.d/global.conf
