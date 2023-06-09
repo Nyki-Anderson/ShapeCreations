@@ -2,7 +2,9 @@
 title: UPDATES
 description: A development update log for ShapeCreations. Currently manually edited with automation slated for future.
 created: 2023/06/08 04:43:18
-Last modified: 2023/06/09 02:29:32
+Last modified: 2023/06/09 02:33:05
+tags: [updates, log, shapecreation]
+status: in-progress
 ---
 
 # Updates Log
