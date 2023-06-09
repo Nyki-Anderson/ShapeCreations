@@ -1,14 +1,14 @@
 ---  
 type: TutorialClass  
-title: Module_0_Glossary  
+title: 0-Glossary  
 description: A comprehensive glossary of terms used in module 0 organized first  
   by module section and then alphabetically. I have attempted defined the terms  
   in my own words, often to build context around what I am discussing. So, links  
   to official definitons or documentation has been included for further reading.  
 share: true  
-category: 0_Getting_Started  
+category: 0-Getting-Started  
 created: Thursday, June 8th 2023, 1:57:23 am  
-modified: Thursday, June 8th 2023, 6:42:30 pm  
+modified: Thursday, June 8th 2023, 9:57:12 pm  
 tags:  
   - glossary  
   - defintions  
@@ -21,15 +21,15 @@ status: updating
   
 ---  
   
-# Module_0_Glossary  
+# 0-Glossary  
   
 ---  
   
-## [0.1_Note_Taking_with_Obsidian](./0.1_Note_Taking_with_Obsidian.md#)  
+## [0.1-Note-Taking-with-Obsidian](./0.1-Note-Taking-with-Obsidian.md#)  
   
-#### [DevSecOps](https://www.vmware.com/topics/glossary/content/devsecops.html#:~:text=DevSecOps%20(short%20for%20development%2C%20security,deliver%20robust%20and%20secure%20applications.)  
+#### DevSecOps  
   
-Short for **D**evelopmemt, **S**ecurity, **O**perations. It is a method or mindset in development that emphasizes security throughout the life of the project. In all senses, security should be just as important when developing the code as it is when it is in production, meaning maintaining back and forth communication between the security team, development team, and operations team.  
+Short for **D**evelopmemt, **S**ecurity, **O**perations. It is a method or mindset in development that emphasizes security throughout the life of the project. In all senses, security should be just as important when developing the code as it is when it is in production, meaning maintaining back and forth communication between the security team, development team, and operations team. [Learn more](<https://www.vmware.com/topics/glossary/content/devsecops.html#:~:text=DevSecOps%20(short%20for%20development%2C%20security,deliver%20robust%20and%20secure%20applications.)>  
   
 #### [Markdown](https://www.markdownguide.org/getting-started/)  
   
@@ -43,13 +43,13 @@ As mentioned previously, [Obsidian](https://obsidian.md/) stores your files on y
   
 Is a method of linking concepts and notes to related concepts and notes through the use of tags, headers, or other user-defined metadata. In practice, it is proven to reinforce learning, define hidden connections between concepts, and organize large bodies of information.  
   
-## [0.2_Development_with_VSCode](./0.2_Development_with_VSCode.md#)  
+## [0.2-Development-with-VSCode](./0.2-Development-with-VSCode.md#)  
   
 #### [Multi-root Workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces)  
   
 A VSCode environment scope that encompasses the root project folder and all subdirectories, and also contains a `*.code-workspace` file. Within this environment, settings can be prioritized and specified based on the language/s used within the project or just configured for usability. I won’t go into much detail here as I’m most excited to share the extensions but [VSCode](https://code.visualstudio.com/) goes into great detail about settings for each scope (user, workspace, global, etc). You can find that information here : [Multi-root Workspaces in Visual Studio Code](https://code.visualstudio.com/docs/editor/multi-root-workspaces).  
   
-## [0.3_Docker_Primer](./0.3_Docker_Primer.md#)  
+## [0.3-Docker-Primer](./0.3-Docker-Primer.md#)  
   
 #### Containers (see [containers](https://docs.docker.com/glossary/))  
   
