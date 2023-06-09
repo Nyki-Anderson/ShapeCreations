@@ -34,7 +34,7 @@ All tutorial walkthroughs can be found in the [docs/](./docs/) folder within thi
 
 I will attempt to keep a running log of updates in the [UPDATES.md](UPDATES.md) file when tutorial sections or code has been edited or expanded upon.
 
-The future state of the project can be found in the [FUTURE_LOG.md](FUTURE_LOG.md) file and will be gradually be checked off as improvements are made. 
+The future state of the project can be found in the [FUTURE.md](FUTURE.md) file and will be gradually be checked off as improvements are made. 
 
 For the truly impatient or those who simply wish to tinker with the fully developed project, I will eventually include a `Makefile` that builds the base project in its entirety. This will be added at a later date and will be found in the [TLDR? Build the Full Project](README.md#tldr-build-the-full-project)
 
