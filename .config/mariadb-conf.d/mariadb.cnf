@@ -1,0 +1,4 @@
+[mariadb]
+default_time_zone='America/New_York'
+log_error=/var/log/mysql
+log_warnings=4

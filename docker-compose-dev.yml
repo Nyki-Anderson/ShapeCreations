@@ -13,3 +13,4 @@ services:
     volumes:
       - ${DB_DATA}:/var/lib/mysql:rw
       - ${DB_INIT_SCRIPTS}:/docker-entrypoint-initdb.d:ro
+      - ${DB_LOGS}:/var/log:rw
