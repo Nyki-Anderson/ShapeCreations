@@ -2,8 +2,8 @@
 title: README
 description: The main README.md file for ShapeCreations project. 
 created: 2023/06/07 23:34:49
-Last modified: 2023/06/09 03:07:11
-tags: [readme, shapecreation]
+Last modified: 2023/06/09 03:31:21
+tags: [readme, shapecreation, docker, apache, php, mariadb, phpmyadmin, security]
 status: in-progress
 ---
 

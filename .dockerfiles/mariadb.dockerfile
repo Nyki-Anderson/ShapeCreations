@@ -16,8 +16,8 @@ ARG DB_INIT_SCRIPTS
 #COPY ${DB_INIT_SCRIPTS} /var/lib/mysql/docker-entrypoint-initdb.d
 
 VOLUME ["/var/lib/mysql"]
-
 VOLUME ["/docker-entrypoint-initdb.d"]
+VOLUME ["/var/log/"]
 
 ## Document Container Exposed Port
 EXPOSE 3306
