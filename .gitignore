@@ -31,4 +31,4 @@ ShapeCreations.code-workspace
 !.security/certs/.gitkeep
 !.security/credentials/.gitkeep
 !.security/keys/.gitkeep
-!.docs/images/.gitkeep
+!.docs/media/.gitkeep
