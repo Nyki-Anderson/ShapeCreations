@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  apache:
+    volumes:
+      - ${APACHE_PUBLIC_HTML}:/usr/local/apache2/htdocs/${VIRTUAL_HOST}/public_html:ro
+      - ${APACHE_LOGS}:/usr/local/apache2/logs:rw
+  php-fpm:
+    volumes:
+      - ${APP}:/var/www/html:rw
+      - ${PHP_LOGS}:/var/log/${APP_NAME}:rw
+  mariadb:
+    volumes:
+      - ${DB_DATA}:/var/lib/mysql:rw
+      - ${DB_INIT_SCRIPTS}:/docker-entrypoint-initdb.d:ro
+      - ${DB_LOGS}:/var/log:rw
