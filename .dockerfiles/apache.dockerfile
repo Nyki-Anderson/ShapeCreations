@@ -1,51 +1,46 @@
+ARG ALPINE_VERSION
 ARG APACHE_VERSION
-ARG ALPINE VERSION
 
 FROM httpd:${APACHE_VERSION}-alpine${ALPINE_VERSION}
 
-RUN apk update --no-cache; \
-  apk upgrade --no-cache;
-
-WORKDIR /usr/local/apache2
-
-## Add Low-Privilege User and Grant Permissions
-ARG USER
+ARG APACHE_CONFIG
+ARG APACHE_HTTP_PORT
+ARG APACHE_HTTPS_PORT
+ARG APACHE_PUBLIC_HTML
 ARG GROUP
 ARG UID
-ARG APP_NAME
+ARG USER
 ARG VIRTUAL_HOST
 
-RUN addgroup -S -g ${UID} ${GROUP} \
-  && adduser -S -D -u ${UID} -s --disabled-password --gecos "" --no-create-home -G ${GROUP} ${USER} \
-  && mkdir -p ./htdocs/${VIRTUAL_HOST}/public_html \
-  && chown -R ${UID}:${UID} ./logs ./conf ./htdocs/${VIRTUAL_HOST}/public_html
+## Update and Upgrade Alpine OS without Cache 
+RUN apk update --no-cache \
+  && apk upgrade --no-cache
 
-ARG UID
+## Change Working Directory to Server Root
+WORKDIR /usr/local/apache2
 
-USER ${UID}
-
-ARG APACHE_CONFIG
-
-## Replace Config File in Container
+## Add Config Files (Accessible only by Root User)
 COPY ${APACHE_CONFIG}/httpd.conf ./conf/httpd.conf
 COPY ${APACHE_CONFIG}/extra/ssl.conf ./conf/extra/httpd-ssl.conf
 COPY ${APACHE_CONFIG}/extra/vhosts.conf ./conf/extra/httpd-vhosts.conf
 
-ARG APACHE_PUBLIC_HTML
-ARG VIRTUAL_HOST
-ARG APACHE_LOGS
+## Add Non-Root User/Group & Make Project and Log Directories
+RUN addgroup -S -g ${UID} ${GROUP} \
+  && adduser -S -D -u ${UID} -s --disabled-password --gecos "" --no-create-home -G ${GROUP} ${USER} \
+  && mkdir -p ./htdocs/${VIRTUAL_HOST}/public_html /logs
 
-## Serve Public Files to Container
-COPY ${APACHE_PUBLIC_HTML} ./htdocs/${VIRTUAL_HOST}/public_html
+## Adjust Permissions & Serve Public Files to Container
+COPY --chown=${USER}:${GROUP} ${APACHE_PUBLIC_HTML} ./htdocs/${VIRTUAL_HOST}/public_html
 
-VOLUME ["/usr/local/apache2/htdocs/${VIRTUAL_HOST}/public_html"]
+## Switch to Non-Root User for Remainder of Build
+USER ${USER}:${GROUP}
 
-VOLUME ["/usr/local/apache2/logs"]
+## Document Exposed Privileged Port
+EXPOSE ${APACHE_HTTP_PORT}
+EXPOSE ${APACHE_HTTPS_PORT}
 
-
-EXPOSE 443
-
+## Change Working Directory to Project Document Root
 WORKDIR /usr/local/apache2/htdocs/${VIRTUAL_HOST}/public_html
 
-# Start server in foreground
-CMD ["httpd", "-D", "FOREGROUND"]
+## Execute Server in Foreground
+ENTRYPOINT ["httpd", "-D", "FOREGROUND"]

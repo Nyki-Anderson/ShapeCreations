@@ -2,7 +2,7 @@
 title: README
 description: The main README.md file for ShapeCreations project. 
 created: 2023/06/07 23:34:49
-Last modified: 2023/06/09 03:31:21
+Last modified: 2023/07/08 14:42:57
 tags: [readme, shapecreation, docker, apache, php, mariadb, phpmyadmin, security]
 status: in-progress
 ---
@@ -48,11 +48,7 @@ The documentation is organized in numbered Modules folders with several sub-numb
 #### Jump to a Module:
 
 - [0-Getting-Started](./docs/0-Getting-Started)
-- [1-Secure-Configuration](./docs/1-Secure-Configuration)
-- [2-Hardening](./docs/2-Hardening)
-- [3-User-Login](./docs/3-User-Login)
-- [4-Upload-Creations](./docs/4-Upload-Creations)
-- [5-Interactions](./docs/5-Interactions)
+- [1-Secure-Configuration](./docs/1-Dockerizing)
 
 # Updates Log
 I will attempt to keep a running log of updates in the [UPDATES.md](UPDATES.md) file when tutorial sections or code has been edited or expanded upon.
