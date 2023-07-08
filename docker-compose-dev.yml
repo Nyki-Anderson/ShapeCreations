@@ -3,7 +3,7 @@ version: "3.8"
 services:
   apache:
     volumes:
-      - ${APACHE_PUBLIC_HTML}:/usr/local/apache2/htdocs/${VIRTUAL_HOST}/public_html:ro
+      - ${APACHE_PUBLIC_HTML}:/usr/local/apache2/htdocs/${VIRTUAL_HOST}/public_html:rw
       - ${APACHE_LOGS}:/usr/local/apache2/logs:rw
   php-fpm:
     volumes:

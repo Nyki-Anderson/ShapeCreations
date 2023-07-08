@@ -7,6 +7,8 @@ services:
       dockerfile: ${DOCKERFILES}/apache.dockerfile
       args:
         - APACHE_CONFIG=${APACHE_CONFIG}
+        - APACHE_HTTP_PORT=${APACHE_HTTP_PORT}
+        - APACHE_HTTPS_PORT=${APACHE_HTTPS_PORT}
         - APACHE_PUBLIC_HTML=${APACHE_PUBLIC_HTML}
         - APACHE_VERSION=${APACHE_VERSION}
         - APP_NAME=${APP_NAME}
