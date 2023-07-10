@@ -70,11 +70,11 @@ services:
     ports:
       - ${DB_PORT}:3306
     environment:
-      - MARIADB_DATABASE_FILE=/run/secrets/db-name
-      - MARIADB_USER_FILE=/run/secrets/db-user
-      - MARIADB_PASSWORD_FILE=/run/secrets/db-password
-      - MARIADB_ROOT_PASSWORD_FILE=/run/secrets/db-root-password
-      - MARIADB_ROOT_HOST_FILE=/run/secrets/db-host
+      - MARIADB_DATABASE_FILE=${DB_DATABASE}
+      - MARIADB_USER_FILE=${DB_USER}
+      - MARIADB_PASSWORD_FILE=${DB_PASSWORD}
+      - MARIADB_ROOT_PASSWORD_FILE=${DB_ROOT_PASSWORD}
+      - MARIADB_ROOT_HOST_FILE=${DB_ROOT_HOST}
     secrets:
       - db-name
       - db-user

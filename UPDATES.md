@@ -2,7 +2,7 @@
 title: UPDATES
 description: A development update log for ShapeCreations. Currently manually edited with automation slated for future.
 created: 2023/06/08 04:43:18
-Last modified: 2023/07/10 01:36:47
+Last modified: 2023/07/10 08:58:09
 tags: [updates, log, shapecreation]
 status: in-progress
 ---
@@ -12,6 +12,7 @@ status: in-progress
 ### July 10th, 2023
 
 - Removed `context` attribute from `build` definition in `docker-compose.yml`.
+- Refactored the directory structure, especially within the context of the Docker phase of the project. All folders related to the Docker configuration have been put into the high-level `.docker` folder: i.e., `config`, `db`, `dockerfile`, `security`. The leading `.` has been removed from all of these folders. I have also updated the paths in the `.env` file which takes care of all the configurations files using said path variables. Finally, the `.dockerignore` and `.gitignore` files have been updated as well.
 
 ### July 9th, 2023
 

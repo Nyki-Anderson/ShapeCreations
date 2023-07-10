@@ -2,7 +2,7 @@
 title: FUTURE
 description: A log containing future implementation ideas and features. List is ordered by priority.
 created: 2023/06/08 04:43:04
-Last modified: 2023/07/10 08:19:26
+Last modified: 2023/07/10 08:20:41
 tags: [future, log, shapecreation]
 status: in-progress
 ---

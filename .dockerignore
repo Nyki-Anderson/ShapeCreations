@@ -1,7 +1,7 @@
-.config/phpmyadmin-conf.d
-!.config/phpmyadmin-conf.d/config.user.inc-example.php
-db/**
-!db/init-scripts/permissions.sql
+.docker/config/phpmyadmin-conf.d
+!.docker/config/phpmyadmin-conf.d/config.user.inc-example.php
+.docker/db/**
+!.docker/db/init-scripts/permissions.sql
 .dockerignore
 .DS_Store
 docs/**
@@ -12,5 +12,5 @@ example.env
 logs/**
 LICENSE
 node_modules/**
-.security/**
+.docker/security/**
 ShapeCreations.code-workspace
