@@ -3,7 +3,6 @@ version: '3.8'
 services:
   apache:
     build:
-      context: .
       dockerfile: ${DOCKERFILES}/apache.dockerfile
       args:
         - APACHE_CONFIG=${APACHE_CONFIG}
@@ -18,12 +17,18 @@ services:
         - VIRTUAL_HOST=${VIRTUAL_HOST}
     container_name: apache
     restart: always
-    hostname: ${VIRTUAL_HOST}
     ports:
       - ${APACHE_HTTP_PORT}:80
       - ${APACHE_HTTPS_PORT}:443
-    env_file:
-      - ./.env
+    environment:
+      - APACHE_CERTIFICATE=${APACHE_CERTIFICATE}
+      - APACHE_PRIVATE_KEY=${APACHE_PRIVATE_KEY}
+      - APP_NAME=${APP_NAME}
+      - GROUP=${GROUP}
+      - HOST_EMAIL=${HOST_EMAIL}
+      - UID=${UID}
+      - USER=${USER}
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
     secrets:
       - server-certificate
       - server-private
@@ -31,12 +36,10 @@ services:
       - php-fpm
   php-fpm:
     build:
-      context: .
       dockerfile: ${DOCKERFILES}/php-fpm.dockerfile
       args:
         - APP=${APP}
         - APP_NAME=${APP_NAME}
-        - COMPOSER_VERSION=${COMPOSER_VERSION}
         - GROUP=${GROUP}
         - PHP_CONFIG=${PHP_CONFIG}
         - PHP_PORT=${PHP_PORT}
@@ -47,12 +50,16 @@ services:
     restart: always
     ports:
       - ${PHP_PORT}:9000
-    env_file: ./.env
+    environment:
+      - APP_NAME=${APP_NAME}
+      - GROUP=${GROUP}
+      - UID=${UID}
+      - USER=${USER}
+      - XDEBUG_PORT=${XDEBUG_PORT}
     links:
       - mariadb
   mariadb:
     build:
-      context: .
       dockerfile: ${DOCKERFILES}/mariadb.dockerfile
       args:
         - DB_VERSION=${DB_VERSION}
@@ -62,7 +69,6 @@ services:
     restart: always
     ports:
       - ${DB_PORT}:3306
-    env_file: ./.env
     environment:
       - MARIADB_DATABASE_FILE=/run/secrets/db-name
       - MARIADB_USER_FILE=/run/secrets/db-user

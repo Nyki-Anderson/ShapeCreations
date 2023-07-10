@@ -30,10 +30,10 @@ RUN addgroup -S -g ${UID} ${GROUP} \
   && mkdir -p ./htdocs/${VIRTUAL_HOST}/public_html /logs
 
 ## Adjust Permissions & Serve Public Files to Container
-COPY --chown=${USER}:${GROUP} ${APACHE_PUBLIC_HTML} ./htdocs/${VIRTUAL_HOST}/public_html
+COPY --chown=${UID}:${UID} ${APACHE_PUBLIC_HTML} ./htdocs/${VIRTUAL_HOST}/public_html
 
 ## Switch to Non-Root User for Remainder of Build
-USER ${USER}:${GROUP}
+USER ${UID}:${UID}
 
 ## Document Exposed Privileged Port
 EXPOSE ${APACHE_HTTP_PORT}

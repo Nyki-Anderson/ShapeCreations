@@ -5,7 +5,8 @@ db/**
 .dockerignore
 .DS_Store
 docs/**
-.env-example
+.env
+example.env
 .git/**
 .gitignore
 logs/**
@@ -13,4 +14,3 @@ LICENSE
 node_modules/**
 .security/**
 ShapeCreations.code-workspace
-
