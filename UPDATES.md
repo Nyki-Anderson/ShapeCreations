@@ -2,12 +2,22 @@
 title: UPDATES
 description: A development update log for ShapeCreations. Currently manually edited with automation slated for future.
 created: 2023/06/08 04:43:18
-Last modified: 2023/07/08 14:42:17
+Last modified: 2023/07/10 01:36:47
 tags: [updates, log, shapecreation]
 status: in-progress
 ---
 
 # Updates Log
+
+### July 10th, 2023
+
+- Removed `context` attribute from `build` definition in `docker-compose.yml`.
+
+### July 9th, 2023
+
+- Renamed `.env.example` to `example.env` in order to preserve syntax highlighting. Needed to install and enable the [ENV](https://marketplace.visualstudio.com/items?itemName=IronGeek.vscode-env) extension from the VS Code Marketplace. 
+- Changed the `USER` instruction value in `apache.dockerfile` and `php-fpm.dockerfile`from ${USER}:${GROUP} to ${UID}:${UID}. Prior to this, `docker inspect CONTAINER` revealed that the ${USER} variable was being ignored. The host user was being used instead.
+- Refactored access to environmental variables for each container. Previously, every container had access to the global `.env` file granting them access to irrelevant information. Now, the global `.env` file is used by `docker-compose.yml` only and each environment variable was assigned using the `environments` attribute. Now each container only has access to the variables that it uses within their configuration files.
 
 ### June 8th, 2023
 

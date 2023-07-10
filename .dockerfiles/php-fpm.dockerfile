@@ -40,10 +40,10 @@ RUN mkdir -p /var/log/${APP_NAME} \
   && adduser -D -H -u ${UID} -G ${GROUP} ${USER}  
 
 ## Add Project Directory to Image File System & Allow Non-Root User Permissions
-COPY --chown=${USER}:${GROUP} ${APP} /var/www/html
+COPY --chown=${UID}:${UID} ${APP} /var/www/html
 
 ## Switch to Non-Root User 
-USER ${USER}:${GROUP}
+USER ${UID}:${UID}
 
 ## Change Working Directory to Project Root
 WORKDIR /var/www/html/public_html
