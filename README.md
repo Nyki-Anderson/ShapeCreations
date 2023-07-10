@@ -2,7 +2,7 @@
 title: README
 description: The main README.md file for ShapeCreations project. 
 created: 2023/06/07 23:34:49
-Last modified: 2023/07/08 15:51:13
+Last modified: 2023/07/10 08:17:22
 tags: [readme, shapecreation, docker, apache, php, mariadb, phpmyadmin, security]
 status: in-progress
 ---
@@ -43,15 +43,19 @@ The source code for this project will evolve with the project. You will find all
 
 All tutorial walkthroughs can be found in the [docs/](./docs/) folder within the root repository. These in-depth markdown files will be your resource and guide especially when it comes to the custom configurations and secrets management. 
 
-The documentation is organized in numbered Modules folders with several sub-numbered Sections inside. For example Module 0 Section 0 can be found in file `./docs/0-Getting-Started/0.0-Project-Overview` 
+The documentation is organized in numbered Modules folders with several sub-numbered Sections inside. For example Module 0 Section 0.0 can be found in file `./docs/0-Getting-Started/0.0-Project-Overview` 
 
 #### Jump to a Module:
 
 - [0-Getting-Started](./docs/0-Getting-Started)
 - [1-Secure-Configuration](./docs/1-Dockerizing)
 
-# Updates Log
-I will attempt to keep a running log of updates in the [UPDATES.md](UPDATES.md) file when tutorial sections or code has been edited or expanded upon.
+# Code Updates Log
+
+I will attempt to keep a running log of updates in the [UPDATES.md](UPDATES.md) file when code has been edited, expanded upon, otherwise refactored. Check this file often. 
+
+# Tutorial Edits Log
+Tutorial edits on the other hand will happen much less often (hopefully) and are more difficult to log as I often go back through the modules to add internal conceptual links and update places in which I've changed writing conventions. [EDITS.md](./docs/EDITS.md) will only be logged when I've made substantial changes to a section's content, no longer feel something is within scope, and/or learn something new. 
 
 # Future Log
 
