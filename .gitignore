@@ -1,7 +1,7 @@
 ## Files to Ignore ##
 app/public_html/assets/images/**
 .docker/config/phpmyadmin-conf.d/**
-.dockerdb/**
+.docker/db/**
 .DS_Store
 .env
 logs/**
