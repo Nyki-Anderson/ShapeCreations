@@ -24,7 +24,7 @@ $cfg['Servers'][$i]['AllowDeny']['rules'] = array(
 /**
  * Directories for saving/loading files from server
  */
-$cfg['SaveDir'] = ''; // Should lead to db/init-scripts
+$cfg['SaveDir'] = ''; // Should lead to db/init-scripts (absolute)
 
 /**
  * ReCAPTCHA using gCAPTCHA

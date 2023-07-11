@@ -38,6 +38,7 @@ services:
     build:
       dockerfile: ${DOCKERFILES}/php-fpm.dockerfile
       args:
+        - ALPINE_VERSION=${ALPINE_VERSION}
         - APP=${APP}
         - APP_NAME=${APP_NAME}
         - GROUP=${GROUP}
@@ -75,6 +76,7 @@ services:
       - MARIADB_PASSWORD_FILE=${DB_PASSWORD}
       - MARIADB_ROOT_PASSWORD_FILE=${DB_ROOT_PASSWORD}
       - MARIADB_ROOT_HOST_FILE=${DB_ROOT_HOST}
+      - MARIADB_AUTO_UPGRADE=1
     secrets:
       - db-name
       - db-user
