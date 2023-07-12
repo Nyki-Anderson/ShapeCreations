@@ -28,6 +28,7 @@ ShapeCreations.code-workspace
 !logs/apache/.gitkeep
 !logs/mariadb/.gitkeep
 !logs/php/.gitkeep
+!.docker/security/.gitkeep
 !.docker/security/certs/.gitkeep
 !.docker/security/credentials/.gitkeep
 !.docker/security/keys/.gitkeep
