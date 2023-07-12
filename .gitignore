@@ -2,13 +2,13 @@
 app/public_html/assets/images/**
 .docker/config/phpmyadmin-conf.d/**
 .docker/db/**
+.docker/security/**
 .DS_Store
 .env
 logs/**
 .git/**
 node_modules/**
 ShapeCreations.code-workspace
-.docker/security/**
 .vscode/**
 
 ## Exceptions ##
@@ -24,11 +24,12 @@ ShapeCreations.code-workspace
 !.docker/db/.gitkeep
 !.docker/db/init-scripts/.gitkeep
 !.docker/db/mysql-data/.gitkeep
+!.docker/security/.gitkeep
+!.docker/security/certs/.gitkeep
+!.docker/security/credentials/.gitkeep
+!.docker/security/keys/.gitkeep
 !logs/.gitkeep
 !logs/apache/.gitkeep
 !logs/mariadb/.gitkeep
 !logs/php/.gitkeep
-!.docker/security/certs/.gitkeep
-!.docker/security/credentials/.gitkeep
-!.docker/security/keys/.gitkeep
 
